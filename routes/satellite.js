@@ -7,12 +7,18 @@ const Satellite = require("../models/satellite");
 const User = require("../models/user");
 
 //Pobranie satelit po id uzytkownika
-router.get("/get/:id", validateToken, (req, res) => {
-    User.find({_id: req.params.id})
-      .populate("satellite")
-      .then((satelliteList) => {
-        res.json(satelliteList);
-      });
+router.get("/get/:id",(req, res) => {
+    Out = Satellite.find({
+      user: req.params.id,
+    });
+  
+    Out.sort({ date: -1 });
+    Out.exec((err, satelliteList) => {
+      if(!satelliteList){
+        res.json({message: "Aktualnie nie posiadasz żadnych satelit"})
+      }
+    res.json(satelliteList);
+  });
   });
 
 //Dodawanie satelity
