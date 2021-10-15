@@ -12,7 +12,7 @@ router.get("/", function (req, res, next) {
 
 router.post("/register", (req, res) => {
   const { fullname, country, email, password, password2, hasAtomicButton } = req.body;
-
+  
   let errors = [];
 
   if (!fullname || !country || !email || !password || !password2) {
