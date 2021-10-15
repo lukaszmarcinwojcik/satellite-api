@@ -15,7 +15,7 @@ const userSchema = new Schema({
     require: true,
   },
   password: {
-    type: Number,
+    type: String,
     require: true,
   },
   hasAtomicButton: {
@@ -28,7 +28,7 @@ const userSchema = new Schema({
   },
 });
 
-articleSchema.virtual("satellite", {
+userSchema.virtual("satellite", {
   ref: "Satellite", 
   localField: "_id", 
   foreignField: "user", 
