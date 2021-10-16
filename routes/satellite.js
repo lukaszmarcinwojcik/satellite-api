@@ -36,9 +36,10 @@ router.post("/add", validateToken, (req, res) => {
 
   //Edytowanie satelity
   router.put("/edit", validateToken, (req, res) => {
-    const {id, editDate, sideNumber, producer, model, softwareVersion, modelYear, dateOfLaunching, amountOfAmmunition, altitudeInOrbit} =
+    const {id, sideNumber, producer, model, softwareVersion, modelYear, dateOfLaunching, amountOfAmmunition, altitudeInOrbit} =
       req.body;
-    Product.findByIdAndUpdate(
+      editDate = new Date();
+    Satellite.findByIdAndUpdate(
       {
         _id: id,
       },
