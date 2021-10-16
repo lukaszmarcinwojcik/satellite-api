@@ -27,6 +27,10 @@ router.post("/register", (req, res) => {
     errors.push({ message: "Hasło musi zawierac conajmniej 8 znaków" });
   }
 
+  if(email.length>250){
+    errors.push({ message: "email może zawierać max 250 znakow" });
+  }
+
   if (errors.length > 0) {
     res.json({
       errors,
