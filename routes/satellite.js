@@ -35,7 +35,7 @@ router.post("/add", validateToken, (req, res) => {
   });
 
   //Edytowanie satelity
-  router.put("/edit/product", validateToken, (req, res) => {
+  router.put("/edit", validateToken, (req, res) => {
     const {id, sideNumber, producer, model, softwareVersion, modelYear, dateOfLaunching, amountOfAmmunition, altitudeInOrbit} =
       req.body;
       editDate = new Date();

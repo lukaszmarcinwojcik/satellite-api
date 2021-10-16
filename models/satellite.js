@@ -6,6 +6,10 @@ const satelliteSchema = new Schema({
     type: String,
     required: true,
   },
+  model: {
+    type: String,
+    require: true,
+  },
   producer: {
     type: String,
     require: true,
