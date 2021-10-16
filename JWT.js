@@ -6,7 +6,7 @@ const createTokens = (user) => {
   const accessToken = sign(
     { fullname: user.fullname, id: user.id },
     config.JWT_SECRET,
-    { expiresIn: 300 }
+    { expiresIn: 2400 }
   );
   return accessToken;
 };
